@@ -41,7 +41,20 @@ void push(Stack* stack, Aluno aluno) {
 }
 
 Aluno pop(Stack* stack) {
+    Aluno alunoParaRemover;
 
+    if (isEmpty(stack)) {
+        printf("Erro: Pilha vazia\n");
+        return alunoParaRemover;
+    }
+
+    alunoParaRemover = stack->topo->aluno;
+
+    No* temp = stack->topo;
+    stack->topo = stack->topo->next;
+    free(temp);
+
+    return alunoParaRemover;
 }
 
 void printStack(Stack* stack) {
