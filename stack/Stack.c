@@ -28,7 +28,16 @@ int isEmpty(Stack* stack) {
 }
 
 void push(Stack* stack, Aluno aluno) {
+    No* novoNo = (No*)malloc(sizeof(No));
+    novoNo->aluno = aluno;
+    novoNo->next = NULL;
 
+    if (stack->topo == NULL) {
+        stack->topo = novoNo;
+    } else {
+        novoNo->next = stack->topo;
+        stack->topo = novoNo;
+    }
 }
 
 Aluno pop(Stack* stack) {
