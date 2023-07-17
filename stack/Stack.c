@@ -77,3 +77,28 @@ void printStack(Stack* stack) {
         aux_num++;
     }
 }
+
+int main(void) {
+    Stack* stack = constStack();
+
+    Aluno a1 = {"Eduardo", "RA00008400000", 12, 9.8};
+    Aluno a2 = {"Luis", "RA0000888888", 10, 9.0};
+    Aluno a3 = {"Joao", "RA00008415000", 8, 8.0};
+    Aluno a4 = {"Felipe", "RA0040888888", 6, 7.0};
+
+    push(stack, a1);
+    push(stack, a2);
+    push(stack, a3);
+    push(stack, a4);
+
+    printStack(stack);
+
+    pop(stack);
+    pop(stack);
+
+    printStack(stack);
+
+    free(stack);
+
+    return 0;
+}
