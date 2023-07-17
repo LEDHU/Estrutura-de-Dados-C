@@ -58,5 +58,22 @@ Aluno pop(Stack* stack) {
 }
 
 void printStack(Stack* stack) {
+    if (isEmpty(stack)) {
+        printf("Pilha vazia\n");
+        return;
+    }
 
+    printf("Elementos da stack:\n");
+
+    No* aux = stack->topo;
+    int aux_num = 1;
+    while (aux != NULL) {
+        printf("%d, {\n", aux_num);
+        printf("    Nome: %s,\n", aux->aluno.nome);
+        printf("    Matricula: %s,\n", aux->aluno.matricula);
+        printf("    Falta: %d,\n", aux->aluno.faltas);
+        printf("    Media: %.2f\n}\n\n", aux->aluno.media);
+        aux = aux->next;
+        aux_num++;
+    }
 }
