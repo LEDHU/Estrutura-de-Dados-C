@@ -29,3 +29,17 @@ Queue* constQueue() {//construtor
     queue->tail = NULL;
     return queue;
 }
+
+void enqueue(Queue* queue, Produto p) {//enfilera
+    No* novoNo = (No*)malloc(sizeof(No));
+    novoNo->produto = p;
+    novoNo->next = NULL;
+
+    if (queue->head == NULL) {
+        queue->head = novoNo;
+        queue->tail = novoNo;
+    } else {
+        queue->tail->next = novoNo;
+        queue->tail = novoNo;
+    }
+}
