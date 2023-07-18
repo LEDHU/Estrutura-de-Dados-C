@@ -63,3 +63,23 @@ Produto dequeue(Queue* queue) {//desenfilera
 
     return p;
 }
+
+void printQueue(Queue* queue) {
+    if (queue->head == NULL) {
+        printf("Erro: fila vazia\n");
+        return;
+    }
+
+    No* aux = queue->head;
+    int aux_num = 1;
+    printf("Elementos da queue:\n");
+    while (aux != NULL) {
+        printf("%d, { ", aux_num);
+        printf("\n    Nome: %s, ", aux->produto.nome);
+        printf("\n    Codigo: %s, ", aux->produto.codigo);
+        printf("\n    Estoque: %d, ", aux->produto.estoque);
+        printf("\n    Preco: %.2f \n}\n\n", aux->produto.preco);
+        aux = aux->next;
+        aux_num++;
+    }
+}
