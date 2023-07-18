@@ -43,3 +43,23 @@ void enqueue(Queue* queue, Produto p) {//enfilera
         queue->tail = novoNo;
     }
 }
+
+Produto dequeue(Queue* queue) {//desenfilera
+    Produto p;
+    if (queue->head == NULL) {
+        printf("Erro: fila vazia\n");
+        return p;
+    }
+
+    p = queue->head->produto;
+
+    No* temp = queue->head;
+    queue->head = queue->head->next;
+    free(temp);
+
+    if (queue->head == NULL) {
+        queue->tail = NULL;
+    }
+
+    return p;
+}
