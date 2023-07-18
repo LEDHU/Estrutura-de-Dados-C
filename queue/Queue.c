@@ -83,3 +83,29 @@ void printQueue(Queue* queue) {
         aux_num++;
     }
 }
+
+int main() {
+    Queue* queue = constQueue();
+
+    Produto p1 = {"feijao", "asd1", 12, 5.00};
+    Produto p2 = {"arroz", "apddsw1", 10, 8.00};
+    Produto p3 = {"pao", "aswnf8", 12, 12.00};
+    Produto p4 = {"nutela", "ANejf5", 12, 20.00};
+
+    enqueue(queue, p1);
+    enqueue(queue, p2);
+    enqueue(queue, p3);
+    enqueue(queue, p4);
+
+    printQueue(queue);
+
+    dequeue(queue);
+    dequeue(queue);
+
+    printQueue(queue);
+
+    free(queue);
+
+    return 0;
+}
+
