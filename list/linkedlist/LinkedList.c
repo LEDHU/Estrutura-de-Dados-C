@@ -89,3 +89,22 @@ void removeLast (List* list){
     free(no);
     no_ant->next = NULL;
 }
+
+void printList (List* list){
+    if (list->head == NULL) {
+        printf("Erro: lista vazia\n");
+        return;
+    }
+
+    No* aux = list->head;
+    int aux_num = 1;
+    printf("Elementos da list:\n");
+    while (aux != NULL) {
+        printf("%d, { ", aux_num);
+        printf("\n    Nome: %s, ", aux->func.nome);
+        printf("\n    Matricula: %s, ", aux->func.matricula);
+        printf("\n    Salario: %.2f \n}\n\n", aux->func.salario);
+        aux = aux->next;
+        aux_num++;
+    }
+}
