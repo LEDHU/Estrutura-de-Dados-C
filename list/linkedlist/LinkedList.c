@@ -25,3 +25,16 @@ List* constList() {//construtor
 int isEmpty(List* list) {
     return list->head == NULL;
 }
+
+void insertFirst (List* list, Funcionario func){
+    No* novoNo = (No*)malloc(sizeof(No));
+    novoNo->func = func;
+    novoNo->next = NULL;
+
+    if(list->head == NULL){
+        list->head = novoNo;
+    } else {
+        novoNo->next = list->head;
+        list->head = novoNo;
+    }
+}
