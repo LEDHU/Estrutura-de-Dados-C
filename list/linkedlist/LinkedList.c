@@ -55,3 +55,14 @@ void insertLast (List* list, Funcionario func){
     }
 }
 
+void removeFirst (List* list){
+    if(list->head == NULL){
+        printf("Erro: lista vazia\n");
+        return;
+    }
+
+    No* temp = list->head;
+    list->head = list->head->next;
+    free(temp);
+
+}
