@@ -38,3 +38,20 @@ void insertFirst (List* list, Funcionario func){
         list->head = novoNo;
     }
 }
+
+void insertLast (List* list, Funcionario func){
+    No* novoNo = (No*)malloc(sizeof(No));
+    novoNo->func = func;
+    novoNo->next = NULL;
+
+    if(list->head == NULL){
+        list->head = novoNo;
+    } else {
+        No* aux = list->head;
+        while(aux->next != NULL){
+            aux = aux->next;
+        }
+        aux->next = novoNo;
+    }
+}
+
