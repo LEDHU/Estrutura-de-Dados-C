@@ -66,3 +66,26 @@ void removeFirst (List* list){
     free(temp);
 
 }
+
+void removeLast (List* list){
+    if(list->head == NULL){
+        printf("Erro: lista vazia\n");
+        return;
+    }
+
+    if(list->head->next == NULL){
+        free(list->head);
+        list->head = NULL;
+        return;
+    }
+
+    No* no = list->head;
+    No* no_ant = NULL;
+    while(no->next != NULL){
+        no_ant = no;
+        no = no->next;
+    }
+
+    free(no);
+    no_ant->next = NULL;
+}
