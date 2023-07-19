@@ -108,3 +108,34 @@ void printList (List* list){
         aux_num++;
     }
 }
+
+int main(){
+    List* list = constList();
+
+    Funcionario f1 = {"Joao", "Ad5w84", 1200.00};
+    Funcionario f2 = {"Matheus", "1s5wda", 3000.00};
+    Funcionario f3 = {"Otavio", "gef4e5d", 2000.00};
+    Funcionario f4 = {"Thiago", "dw7dw7", 1800.00};
+    Funcionario f5 = {"Alice", "gefwfr", 2600.00};
+    Funcionario f6 = {"Virna", "dgf5sd", 18400.00};
+
+    insertFirst(list, f1);
+    insertFirst(list, f2);
+    insertFirst(list, f3);
+    insertFirst(list, f4);
+    insertFirst(list, f5);
+    insertLast(list, f6);
+
+    printList(list);
+
+    removeFirst(list);
+    removeFirst(list);
+    removeLast(list);
+    removeLast(list);
+
+    printList(list);
+
+    free(list);
+
+    return 0;
+}
