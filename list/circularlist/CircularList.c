@@ -99,7 +99,27 @@ void removeFirst (List* list){
 }
 
 void removeLast (List* list){
+    if(list->head == NULL){
+        printf("Erro: lista vazia.\n");
+        return;
+    }
+    else{
+        No* aux = list->head;
+        No* aux_ant = NULL;
+        while(aux->next != list->head){
+            aux_ant = aux;
+            aux = aux.next;
+        }
 
+        if(aux_ant == NULL){
+            list->head = NULL;
+        }
+        else{
+            aux_ant->next = list->head;
+        }
+
+        free(aux_ant);
+    }
 }
 
 void printList (List* list){
