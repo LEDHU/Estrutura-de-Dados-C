@@ -70,7 +70,32 @@ void insertLast(List* list, Pessoa p) {
 }
 
 void removeFirst (List* list){
+    if(list->head == NULL){
+        printf("Erro: lista vazia.\n");
+        return;
+    }
+    else{
+        No* last = list->head;
+        while (last->next != list->head){
+            last = last->next;
+        }
 
+        if(list->head.next == NULL){
+            list->head = NULL;
+        }
+        else{
+            No* temp = list->head;
+
+            while (last->next != list->head){
+                last = last->next;
+            }
+
+            list->head = list->head.next;
+            last->next = list->head;
+
+            free(temp);
+        }
+    }
 }
 
 void removeLast (List* list){
