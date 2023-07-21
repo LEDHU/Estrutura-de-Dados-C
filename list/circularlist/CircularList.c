@@ -51,7 +51,22 @@ void insertFirst(List* list, Pessoa p) {
 }
 
 void insertLast(List* list, Pessoa p) {
+    No* novoNo = (No*)malloc(sizeof(No));
+    novoNo->pessoa = p;
+    novoNo->next = NULL;
 
+    if (list->head == NULL) {
+        list->head = novoNo;
+        newNode->next = list->head;
+    }
+    else{
+        No* last = list->head;
+        while (last->next != list->head){
+            last = last->next;
+        }
+        last-> = novoNo;
+        novoNo->next = list->head;
+    }
 }
 
 void removeFirst (List* list){
