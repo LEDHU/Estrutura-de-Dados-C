@@ -36,7 +36,7 @@ void insertFirst(List* list, Pessoa p) {
 
     if (list->head == NULL) {
         list->head = novoNo;
-        newNode->next = list->head;
+        novoNo->next = list->head;
     }
     else {
         No* last = list->head;
@@ -57,14 +57,14 @@ void insertLast(List* list, Pessoa p) {
 
     if (list->head == NULL) {
         list->head = novoNo;
-        newNode->next = list->head;
+        novoNo->next = list->head;
     }
     else{
         No* last = list->head;
         while (last->next != list->head){
             last = last->next;
         }
-        last-> = novoNo;
+        last->next = novoNo;
         novoNo->next = list->head;
     }
 }
@@ -80,7 +80,7 @@ void removeFirst (List* list){
             last = last->next;
         }
 
-        if(list->head.next == NULL){
+        if(list->head->next == NULL){
             list->head = NULL;
         }
         else{
@@ -90,7 +90,7 @@ void removeFirst (List* list){
                 last = last->next;
             }
 
-            list->head = list->head.next;
+            list->head = list->head->next;
             last->next = list->head;
 
             free(temp);
@@ -108,7 +108,7 @@ void removeLast (List* list){
         No* aux_ant = NULL;
         while(aux->next != list->head){
             aux_ant = aux;
-            aux = aux.next;
+            aux = aux->next;
         }
 
         if(aux_ant == NULL){
@@ -141,5 +141,28 @@ void printList (List* list){
 }
 
 int main(){
+    List* list = constList();
 
+    Pessoa p1 = {"Joao", "111.111.111-11", "1.111.111", "01/01/2001", "(11)11111-1111");
+    Pessoa p2 = {"Maria", "222.222.222-22", "2.222.222", "02/02/2002", "(22)22222-2222");
+    Pessoa p3 = {"Gustavo", "333.333.333-33", "3.333.333", "03/03/2003", "(33)33333-3333");
+    Pessoa p4 = {"Aline", "444.444.444-44", "4.444.444", "04/04/2004", "(44)44444-4444");
+
+
+    insertFirst(list, p1);
+    insertFirst(list, p2);
+    insertFirst(list, p3);
+    insertLast(list, p4);
+
+
+    printList(list);
+
+    removeFirst(list);
+    removeLast(list);
+
+    printList(list);
+
+    free(list);
+
+    return 0;
 }
