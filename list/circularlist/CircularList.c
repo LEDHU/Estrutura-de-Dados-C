@@ -123,7 +123,21 @@ void removeLast (List* list){
 }
 
 void printList (List* list){
+    No* aux = list->head;
 
+    int aux_num = 1;
+    printf("Elementos da list:\n");
+    while(aux->next != list->head){
+        printf("%d, { ", aux_num);
+        printf("\n    Nome: %s, ", aux->pessoa.nome);
+        printf("\n    CPF:: %s, ", aux->pessoa.CPF);
+        printf("\n    RG: %s, ", aux->pessoa.RG);
+        printf("\n    Data de nascimento: %s, ", aux->pessoa.data_nasc);
+        printf("\n    Telefone: %s \n}\n\n", aux->pessoa.telefone);
+
+        aux = aux->next;
+        aux_num++;
+    }
 }
 
 int main(){
