@@ -11,7 +11,7 @@ typedef struct Produto {//objeto
 
 typedef struct No {//no
     Produto produto;
-    No* next;
+    struct No* next;
 } No;
 
 typedef struct Queue {//variaveis de uma fila
